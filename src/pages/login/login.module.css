@@ -1,0 +1,35 @@
+.divContainer {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full height to ensure vertical centering */
+}
+
+.divForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    gap: 1rem;
+    border: gray 1px solid;
+    padding: 1.5rem;
+    border-radius: 8px;
+    /* background-color: gray; */
+}
+
+.divForm h1{
+    margin-bottom: 1.5rem;
+}
+
+.divTextField{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.labelTextField{
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
