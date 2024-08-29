@@ -2,13 +2,14 @@ import { useForm } from 'react-hook-form'
 import { TextField, Button } from "@mui/material"
 import style from './cadastro.module.css'
 
-
 export function Cadastro() {
 
     const { register, handleSubmit, formState: { errors } } = useForm()
 
     function onSubmitCadastro(data) {
         console.log(data)
+        alert("Usuario cadastrado con sucesso.")
+        window.location.href = "/login"
     }
 
     return (
@@ -77,7 +78,7 @@ export function Cadastro() {
                             }
                         />
                     </div>
-                        {errors.email && <p className={style.errorMessage}>{errors.email.message}</p>}
+                    {errors.email && <p className={style.errorMessage}>{errors.email.message}</p>}
                     <div className={style.divTextField}>
                         <label htmlFor="senha" className={style.labelTextField}>Senha:</label>
                         <TextField
@@ -103,7 +104,7 @@ export function Cadastro() {
                             }
                         />
                     </div>
-                        {errors.senha && <p className={style.errorMessage}>{errors.senha.message}</p>}
+                    {errors.senha && <p className={style.errorMessage}>{errors.senha.message}</p>}
                     <div className={style.divTextField}>
                         <label htmlFor="confirmarSenha" className={style.labelTextField}>Confirmar <br /> Senha:</label>
                         <TextField
@@ -129,7 +130,7 @@ export function Cadastro() {
                             }
                         />
                     </div>
-                    {errors.confirmarSenha && <p className={style.errorMessage}>{errors.confirmarSenha.message}</p>}
+                {errors.confirmarSenha && <p className={style.errorMessage}>{errors.confirmarSenha.message}</p>}
                 </div>
                 <Button
                     type='submit'
@@ -154,9 +155,3 @@ export function Cadastro() {
     )
 }
 
-/*
-*to do
-*validate confirmar senha
-*style error color
-* function after buton cadastro link login
-*/

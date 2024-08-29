@@ -1,0 +1,33 @@
+.container{
+    width: 100vw;
+    position: fixed;
+    z-index: 50;
+    background-color: lightgrey;
+    /* height: 2.5rem; */
+    /* border: red solid 1px; */
+}
+
+.navHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height:2.5rem;
+    gap: 30px;
+    padding: 0 4rem;;
+
+}
+
+a {
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.navDivHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    /* border: red solid 1px; */
+}

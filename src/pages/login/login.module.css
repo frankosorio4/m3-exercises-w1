@@ -48,3 +48,8 @@
     height: 1px;
     background: #b8b7b7;
 }
+
+.errorMessage{
+    padding-top: 0.5rem;
+    color: red;
+}

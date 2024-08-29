@@ -2,13 +2,15 @@ import { useForm } from 'react-hook-form'
 import { TextField, Button } from "@mui/material"
 import style from './login.module.css'
 
-
 export function Login() {
 
     const { register, handleSubmit, formState: { errors } } = useForm()
 
+
     function onSubmitLogin1(data) {
         console.log(data)
+        //save in LS VALIDATION
+        window.location.href = "/home"
     }
 
     return (
@@ -80,9 +82,3 @@ export function Login() {
     )
 }
 
-/*
-*to do
-*validate user
-*style error color
-* function after buton cadastro link home
-*/

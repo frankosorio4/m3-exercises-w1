@@ -1,8 +1,8 @@
-import styles from './home.module.css'
+import style from './home.module.css'
 
 export function Home(){
     return(
-        <div>
+        <div className={style.container}>
             <h1>Home Page</h1>
         </div>
     )

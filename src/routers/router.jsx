@@ -8,20 +8,28 @@ import { Cadastro } from "../pages/cadastro/cadastro";
 export const routes = createBrowserRouter(
     [
         {
-            path:  '/login',
-            element: <Login/>
-        },
-        {
             path:  '/Cadastro',
             element: <Cadastro/>
         },
         {
-            path:  '/',
-            element: <App/>
+            path:  '/login',
+            element: <Login/>
         },
         {
-            path:  '/home',
-            element: <Home/>
+            path:  '/',
+            element: (
+                <App/>
+            ),
+            // errorElement: <NotFound/>,
+            children:[
+                {
+                    path:  '/home',
+                    element: <Home/>
+                }
+            ]
         }
     ]
 )
+
+// create not found element
+// import header in app
