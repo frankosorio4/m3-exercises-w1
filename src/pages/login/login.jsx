@@ -13,58 +13,76 @@ export function Login() {
 
     return (
         <div className={style.divContainer}>
-                {/* <h1>Bem-Vindo</h1> */}
-                <form className={style.divForm} onSubmit={handleSubmit(onSubmitLogin1)}>
-                    <h1>Entrar</h1>
-                    <div className={style.divTextField}>
-                        <label htmlFor="email" className={style.labelTextField}>Email</label >
-                        <TextField
-                            id='email'
-                            type='email'
-                            sx={{ mt: 1 }}
-                            variant='outlined'
-                            placeholder='usario@email.com'
-                            {...register('email',
-                                {
-                                    required: 'Campo Obrigatorio'
-                                }
-                            )
+            {/* <h1>Bem-Vindo</h1> */}
+            <form className={style.divForm} onSubmit={handleSubmit(onSubmitLogin1)}>
+                <h1>Entrar</h1>
+                <div className={style.divTextField}>
+                    <label htmlFor="email" className={style.labelTextField}>Email</label >
+                    <TextField
+                        id='email'
+                        type='email'
+                        sx={{ mt: 1 }}
+                        variant='outlined'
+                        placeholder='usario@email.com'
+                        {...register('email',
+                            {
+                                required: 'Campo Obrigatorio'
                             }
-                        />
-                        {errors.email && <p>{errors.email.message}</p>}
-                    </div>
-                    <div className={style.divTextField}>
-                        <label htmlFor="senha" className={style.labelTextField}>Senha</label>
-                        <TextField
-                            id='senha'
-                            type='password'
-                            sx={{ mt: 1 }}
-                            variant='outlined'
-                            placeholder='Senha'
-                            {...register('senha',
-                                {
-                                    required: 'Campo Obrigatorio',
-                                    minLength: {
-                                        value: 6,
-                                        message: 'Minimo 6 carateres.'
-                                    },
-                                    maxLength: {
-                                        value: 12,
-                                        message: 'Maximo 12 carateres.'
-                                    }
+                        )
+                        }
+                    />
+                    {errors.email && <p className={style.errorMessage}>{errors.email.message}</p>}
+                </div>
+                <div className={style.divTextField}>
+                    <label htmlFor="senha" className={style.labelTextField}>Senha</label>
+                    <TextField
+                        id='senha'
+                        type='password'
+                        sx={{ mt: 1 }}
+                        variant='outlined'
+                        placeholder='Senha'
+                        {...register('senha',
+                            {
+                                required: 'Campo Obrigatorio',
+                                minLength: {
+                                    value: 6,
+                                    message: 'Minimo 6 carateres.'
+                                },
+                                maxLength: {
+                                    value: 12,
+                                    message: 'Maximo 12 carateres.'
                                 }
-                            )
                             }
-                        />
-                        {errors.senha && <p className={style.errorMessage}>{errors.senha.message}</p>}
-                    </div>
-                    <Button
-                        type='submit'
-                        variant='contained'
-                        sx={{ fontWeight: 'bold', mt: 1.5 }}
-                    >Entrar
-                    </Button>
-                </form>
-            </div>
+                        )
+                        }
+                    />
+                    {errors.senha && <p className={style.errorMessage}>{errors.senha.message}</p>}
+                </div>
+                <Button
+                    type='submit'
+                    variant='contained'
+                    sx={{ fontWeight: 'bold', mt: 1.5 }}
+                >Entrar
+                </Button>
+
+                <div className={style.divider}>
+                    <span className={style.dividerText}> ou </span>
+                </div>
+                {/* Register Button */}
+                <Button
+                    variant='outlined'
+                    sx={{ fontWeight: 'bold', mt: 1 }}
+                    onClick={() => window.location.href = "/cadastro"}
+                >Cadastrese
+                </Button>
+            </form>
+        </div>
     )
 }
+
+/*
+*to do
+*validate user
+*style error color
+* function after buton cadastro link home
+*/
