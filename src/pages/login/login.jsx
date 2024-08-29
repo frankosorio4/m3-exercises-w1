@@ -10,7 +10,7 @@ export function Login() {
     function onSubmitLogin1(data) {
         console.log(data)
         //save in LS VALIDATION
-        window.location.href = "/home"
+        window.location.href = "/"
     }
 
     return (

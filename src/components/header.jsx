@@ -20,7 +20,7 @@ export function Header() {
         <div className={style.container}>
             <nav className={style.navHeader}>
                 <div className={style.navDivHeader}>
-                    <Link to='/home'>Home</Link>
+                    <Link to='/'>Home</Link>
                     <Link to='#'>Rota 1</Link>
                     <Link to='#'>Rota 2</Link>
                 </div>

@@ -4,6 +4,7 @@ import App from '../App'
 import { Login } from "../pages/login/login";
 import { Home } from "../pages/home/home";
 import { Cadastro } from "../pages/cadastro/cadastro";
+import NotFound from "../pages/notFound/notFound";
 
 export const routes = createBrowserRouter(
     [
@@ -20,10 +21,10 @@ export const routes = createBrowserRouter(
             element: (
                 <App/>
             ),
-            // errorElement: <NotFound/>,
+            errorElement: <NotFound/>,
             children:[
                 {
-                    path:  '/home',
+                    path:  '/',
                     element: <Home/>
                 }
             ]
