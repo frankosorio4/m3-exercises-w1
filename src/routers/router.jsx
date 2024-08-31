@@ -9,12 +9,12 @@ import NotFound from "../pages/notFound/notFound";
 export const routes = createBrowserRouter(
     [
         {
-            path:  '/Cadastro',
-            element: <Cadastro/>
-        },
-        {
             path:  '/login',
             element: <Login/>
+        },
+        {
+            path:  '/Cadastro',
+            element: <Cadastro/>
         },
         {
             path:  '/',
