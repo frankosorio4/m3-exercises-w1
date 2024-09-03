@@ -6,12 +6,13 @@ import { useNavigate } from "react-router-dom";
 
 export function Header() {
 
-    const {navigate} = useNavigate();
+    const navigate = useNavigate();
 
     const logout = () => {
         if (confirm("Você deseja sair da sua conta")){
-            // localStorage.removeItem('isLogged');
-            // localStorage.removeItem('idUserLogged');
+            localStorage.removeItem('isLogged');
+            localStorage.removeItem('idUserLogged');
+            localStorage.removeItem('userName')
             navigate("/login")
         }
     }

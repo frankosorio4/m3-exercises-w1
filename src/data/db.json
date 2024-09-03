@@ -1,0 +1,27 @@
+{
+  "listaUsuarios": [
+    {
+      "id": "1",
+      "nome": "usuario 1",
+      "dataNascimento": "1997-12-05",
+      "email": "usuario1@email.com",
+      "senha": "123456",
+      "isLogged": true
+    },
+    {
+      "id": "2",
+      "nome": "usuario 1",
+      "dataNascimento": "1997-12-07",
+      "email": "usuario2@email.com",
+      "senha": "654321",
+      "isLogged": true
+    },
+    {
+      "id": "089e",
+      "nome": "frank",
+      "dataUserNascimento": "2024-09-02",
+      "email": "usuario3@email.com",
+      "senha": "111111"
+    }
+  ]
+}

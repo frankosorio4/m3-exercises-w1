@@ -1,16 +1,50 @@
 import { useForm } from 'react-hook-form'
 import { TextField, Button } from "@mui/material"
 import style from './login.module.css'
+import { FetchContext } from '../../context/Fetch/Fetch'
+import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export function Login() {
 
     const { register, handleSubmit, formState: { errors } } = useForm()
+    const { usuarios } = useContext(FetchContext)
+    const navigate = useNavigate()
 
-
-    function onSubmitLogin1(data) {
-        console.log(data)
-        //save in LS VALIDATION
-        window.location.href = "/"
+    async function onSubmitLogin1(data) {
+        try{
+            let usuarioExiste = false;
+            let usuarioDb = [];
+    
+            usuarios.find( usuario =>{
+                if(usuario.email === data.email){
+                    usuarioDb = usuario;
+                    usuarioExiste = true;
+                    //return true
+                }
+            })
+            
+            if (data.senha === usuarioDb.senha){
+                usuarioDb.isLogged = true;
+                // await editUser(usuarioEntrando,usuarioEditado.id)//TODO
+                localStorage.setItem('isLogged', true)
+                localStorage.setItem('idUserLogged', usuarioDb.id)
+                localStorage.setItem('userName', usuarioDb.nome)
+                // window.location.href = "/"
+                navigate("/")
+                return           
+            }
+            if (!usuarioExiste){
+                alert('Usuario não Cadastrado')
+                return
+            }
+            else{
+                alert('Usuario ou senha incorretas.')
+            }
+        } catch(error){
+            console.error("Error logging in:", error);
+            alert('Erro ao realizar o Login.')
+        }
     }
 
     return (
@@ -74,7 +108,8 @@ export function Login() {
                 <Button
                     variant='outlined'
                     sx={{ fontWeight: 'bold', mt: 1 }}
-                    onClick={() => window.location.href = "/cadastro"}
+                    onClick={() => navigate("/cadastro")}
+                    // onClick={() => window.location.href = "/cadastro"}
                 >Cadastrese
                 </Button>
             </form>

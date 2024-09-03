@@ -1,15 +1,46 @@
 import { useForm } from 'react-hook-form'
 import { TextField, Button } from "@mui/material"
 import style from './cadastro.module.css'
+import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { FetchContext } from '../../context/Fetch/Fetch'
 
 export function Cadastro() {
 
     const { register, handleSubmit, formState: { errors } } = useForm()
+    const {usuarios, registerUser} = useContext(FetchContext)
+    const navigate = useNavigate()
 
-    function onSubmitCadastro(data) {
-        console.log(data)
-        alert("Usuario cadastrado con sucesso.")
-        window.location.href = "/login"
+    function onSubmitCadastro(dataUser) {
+        try{
+            let emailValido = true
+            
+            if (dataUser.senha !== dataUser.confirmarSenha) {
+                alert("As senhas providenciadas nâo coinciden.")
+                return;
+            }
+
+            usuarios.find(usuario => {
+                if(usuario.email === dataUser.email){
+                    alert('Email Ja Cadastrado. Tente com outro Email.')
+                    emailValido = false
+                    return
+                }
+            })
+    
+            if (emailValido){
+                delete dataUser.confirmarSenha;
+                console.log(dataUser)
+                registerUser(dataUser)
+                alert("Usuario cadastrado con sucesso.")
+                navigate("/login")
+            }
+        }
+        catch(error){
+            console.error("Error cadastro in:", error);
+            alert('Erro ao realizar o Cadastro.')
+        }
+
     }
 
     return (
@@ -44,15 +75,15 @@ export function Cadastro() {
                     </div>
                         {errors.nome && <p className={style.errorMessage}>{errors.nome.message}</p>}
                     <div className={style.divTextField}>
-                        <label htmlFor="dataNascimento" className={style.labelTextField}>Data de <br /> nascimento: </label >
+                        <label htmlFor="dataUserNascimento" className={style.labelTextField}>Data de <br /> nascimento: </label >
                         <TextField
-                            id='dataNascimento'
+                            id='dataUserNascimento'
                             type='date'
                             sx={{ mt: 1, width: '200px'}}
                             size='small'
                             variant='outlined'
-                            placeholder='Data de nascimenmto'
-                            {...register('dataNascimento',
+                            placeholder='dataUser de nascimenmto'
+                            {...register('dataUserNascimento',
                                 {
                                     required: 'Campo Obrigatorio'
                                 }
@@ -60,7 +91,7 @@ export function Cadastro() {
                             }
                         />
                     </div>
-                        {errors.dataNascimento && <p className={style.errorMessage}>{errors.dataNascimento.message}</p>}
+                        {errors.dataUserNascimento && <p className={style.errorMessage}>{errors.dataUserNascimento.message}</p>}
                     <div className={style.divTextField}>
                         <label htmlFor="email" className={style.labelTextField}>Email:</label >
                         <TextField
@@ -142,11 +173,12 @@ export function Cadastro() {
                 <div className={style.divider}>
                     <span className={style.dividerText}> ou </span>
                 </div>
-                {/* Register Button */}
+
                 <Button
                     variant='outlined'
                     sx={{ fontWeight: 'bold', mt: 1 }}
-                    onClick={() => window.location.href = "/login"}
+                    onClick={() => navigate("/login")}   
+                    // onClick={() => window.location.href = "/login"}
                 >Entrar
                 </Button>
 

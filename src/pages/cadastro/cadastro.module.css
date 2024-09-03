@@ -40,6 +40,10 @@
     width: 100%;
 }
 
+/* .divTextField label{
+    border: 1px red solid;
+} */
+
 .labelTextField{
     text-align: center;
     font-size: 1rem;
