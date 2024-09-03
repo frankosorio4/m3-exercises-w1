@@ -22,8 +22,8 @@ export function Header() {
             <nav className={style.navHeader}>
                 <div className={style.navDivHeader}>
                     <Link to='/'>Home</Link>
-                    <Link to='#'>Rota 1</Link>
-                    <Link to='#'>Rota 2</Link>
+                    <Link to='/rota1'>Rota 1</Link>
+                    <Link to='/rota2'>Rota 2</Link>
                 </div>
                 <Link to="#" onClick={logout}>Logout</Link>
             </nav>
