@@ -1,3 +1,33 @@
 .container{
     padding: var(--padding-header);
+    width: 100%;
+    height: 100vh;
+}
+
+.formTemporizador{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.formTemporizador h1{
+    padding-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.formTemporizador h2{
+    padding: 0.5rem 0;
+}
+
+p{
+    font-weight: 600;
+    font-size: 1.25rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.name{
+    text-transform: uppercase;
 }
