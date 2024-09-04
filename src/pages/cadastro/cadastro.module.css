@@ -1,0 +1,75 @@
+.divContainer {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full height to ensure vertical centering */
+}
+
+.divForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    gap: 1rem;
+    border: gray 1px solid;
+    padding: 1.5rem;
+    border-radius: 8px;
+    /* background-color: gray; */
+}
+
+.divForm h1{
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.divInputs{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap:0.5rem;
+    /* border: 1px blue solid; */
+}
+
+.divTextField{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px red solid; */
+    width: 100%;
+}
+
+/* .divTextField label{
+    border: 1px red solid;
+} */
+
+.labelTextField{
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    padding-right: 0.5rem;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: 15px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #b8b7b7;
+}
+
+.errorMessage{
+    width: 100%;
+    padding-top: 0.5rem;
+    color: red;
+    text-align: center;
+    /* border: 1px red solid; */
+}

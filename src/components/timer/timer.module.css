@@ -1,0 +1,16 @@
+.divTemporizador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 280px;
+    border-radius: 0.5rem;
+    font-size: 10rem;
+    padding: 0 0;
+    /* border: green solid 1px; */
+}
+
+.divTemporizador span {
+    padding: 0.5rem 0.5rem;
+    /* border: blue solid 1px; */
+}
