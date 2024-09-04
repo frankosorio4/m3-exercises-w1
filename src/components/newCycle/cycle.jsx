@@ -1,5 +1,6 @@
 import { useFormContext } from "react-hook-form";
 import style from "./cycle.module.css";
+import { TextField } from "@mui/material";
 
 export function NewCycle() {
 
@@ -7,13 +8,13 @@ export function NewCycle() {
 
     return (
         <div className={style.container}>
-            <div>
+            <div className={style.divTextField}>
                 <label htmlFor="minutesAmount">Minutos: </label>
-                <input
+                <TextField
                     type='number'
                     id='minutesAmount'
                     placeholder="Min"
-                    width={'30 px'}
+                    // width={'30 px'}
                     {...register('minutesAmount',
                         {
                             required: "Este campo é Obrigatorio.",
@@ -34,13 +35,13 @@ export function NewCycle() {
                         {formState.errors.minutesAmount.message}
                     </p>)}
             </div>
-            <div>
+            <div className={style.divTextField}>
                 <label htmlFor="secondsAmount">Segundos: </label>
-                <input
+                <TextField
                     type='number'
                     id='secondsAmount'
-                    placeholder="Min"
-                    width={'30 px'}
+                    placeholder="Sec"
+                    // width={'30 px'}
                     {...register('secondsAmount',
                         {
                             required: "Este campo é Obrigatorio.",

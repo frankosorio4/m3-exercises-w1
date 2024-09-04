@@ -5,9 +5,16 @@
     font-weight: 600;
 }
 
-.container input[type='number']{
-    max-width: 2.5rem;
-    height: 1.5rem;
+.container input{
+    width: 3rem;
+    height: 0.4rem;
+}
+
+.divTextField{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* border: 1px red solid; */
 }
 
 .textError{
